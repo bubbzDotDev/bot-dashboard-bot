@@ -14,7 +14,7 @@ export default class PrefixCommand extends BaseCommand {
   async run(client: DiscordClient, message: Message, args: Array<string>) {
     const config = client.configs.get(message.guildId);
     if (!args.length) {
-      message.channel.send(`The current prefix is \`${config.prefix}\`\n\nTo update it, add a new prefix in your command, replacing \`new\` with your desired prefix: \`${config.prefix}prefix new\``);
+      message.channel.send(`To update the prefix, add a new one in your command, replacing \`new\` with your desired prefix: \`${config.prefix}prefix new\``);
       return;
     }
     const [newPrefix] = args;

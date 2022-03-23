@@ -14,6 +14,4 @@ export class GuildConfiguration {
 
   @Column({ name: 'welcome_channel_id', nullable: true })
   welcomeChannelId: string;
-
-
 }
