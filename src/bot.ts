@@ -3,7 +3,7 @@ config();
 import 'reflect-metadata';
 import { registerCommands, registerEvents } from './utils/registry';
 import DiscordClient from './client/client';
-import { Collection, Guild, Intents } from 'discord.js';
+import { Collection, Intents } from 'discord.js';
 import { AppDataSource } from './typeorm/data-source';
 import { GuildConfiguration } from './typeorm/entities/GuildConfiguration';
 
