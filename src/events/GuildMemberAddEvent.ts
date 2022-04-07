@@ -13,13 +13,15 @@ export default class GuildMemberAddEvent extends BaseEvent {
     if (!config) return;
     if (config.welcomeChannelId) {
       const channel = member.guild.channels.cache.get(config.welcomeChannelId) as TextChannel;
-      if (!channel) {
-        console.log('No welcome channel found by given ID.');
+      if (!channel) return;
+      if (config.welcomeMessage.includes('{member}')) {
+        const index = config.welcomeMessage.indexOf('{member}');
+        const start = config.welcomeMessage.substring(0, index);
+        const end = config.welcomeMessage.substring(index + 8);
+        channel.send(`${start}${member}${end}`);
       } else {
-        config.welcomeMessage ? channel.send(config.welcomeMessage) : channel.send(`Welcome ${member}!`);
+        channel.send(config.welcomeMessage);
       }
-    } else {
-      console.log('No welcome channel set.');
     }
   }
 }
