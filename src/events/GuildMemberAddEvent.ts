@@ -16,7 +16,7 @@ export default class GuildMemberAddEvent extends BaseEvent {
       if (!channel) {
         console.log('No welcome channel found by given ID.');
       } else {
-        channel.send(`Welcome ${member}!`)
+        config.welcomeMessage ? channel.send(config.welcomeMessage) : channel.send(`Welcome ${member}!`);
       }
     } else {
       console.log('No welcome channel set.');
