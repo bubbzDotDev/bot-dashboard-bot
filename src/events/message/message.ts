@@ -22,7 +22,7 @@ export default class MessageEvent extends BaseEvent {
       const savedConfig = await this.guildConfigRepository.save(newConfig);
       client.configs.set(message.guildId, savedConfig);
 
-      message.channel.send('All set. Try your command again!');
+      message.channel.send('All set! Try your command again.');
       return;
     }
 
