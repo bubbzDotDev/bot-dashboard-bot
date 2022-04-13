@@ -2,12 +2,12 @@ import { Message } from 'discord.js';
 import BaseCommand from '../../utils/structures/BaseCommand';
 import DiscordClient from '../../client/client';
 
-export default class TestCommand extends BaseCommand {
+export default class HelpCommand extends BaseCommand {
   constructor() {
-    super('test', 'testing', []);
+    super('help', 'help', []);
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
-    message.channel.send('Test command works');
+    message.channel.send('help command works');
   }
 }

@@ -3,7 +3,7 @@ config();
 import 'reflect-metadata';
 import { registerCommands, registerEvents } from './utils/registry';
 import DiscordClient from './client/client';
-import { Collection, Intents } from 'discord.js';
+import { Collection, Guild, Intents, TextChannel } from 'discord.js';
 import { AppDataSource } from './typeorm/data-source';
 import { GuildConfiguration } from './typeorm/entities/GuildConfiguration';
 import { io } from 'socket.io-client';
@@ -21,6 +21,16 @@ const client = new DiscordClient({
 
   socket.on('guildConfigUpdate', (config: GuildConfiguration) => {
     client.configs.set(config.guildId, config);
+  });
+
+  socket.on('announce', (payload) => {
+    const guild = client.guilds.cache.get(payload.guildId) as Guild;
+    const channel = guild.channels.cache.get(payload.channelId) as TextChannel;
+    try {
+      channel.send({ embeds: payload.embeds });
+    } catch(err) {
+      console.log(err);
+    }
   });
 
   await AppDataSource.initialize()
