@@ -33,7 +33,7 @@ export default class MessageEvent extends BaseEvent {
         .split(/\s+/);
       const command = client.commands.get(cmdName);
       if (command) {
-        command.run(client, message, cmdArgs);
+        await command.run(client, message, cmdArgs);
       }
     }
   }

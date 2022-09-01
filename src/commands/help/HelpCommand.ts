@@ -1,13 +1,7 @@
-import { Message } from 'discord.js';
-import BaseCommand from '../../utils/structures/BaseCommand';
-import DiscordClient from '../../client/client';
+import { SlashCommandBuilder } from 'discord.js';
 
-export default class HelpCommand extends BaseCommand {
-  constructor() {
-    super('help', 'help', []);
-  }
+const helpCommand = new SlashCommandBuilder()
+    .setName('help')
+    .setDescription('Help Command');
 
-  async run(client: DiscordClient, message: Message, args: Array<string>) {
-    message.channel.send('help command works');
-  }
-}
+export default helpCommand.toJSON();
