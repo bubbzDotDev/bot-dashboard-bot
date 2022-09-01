@@ -18,7 +18,6 @@ const rest = new REST({ version: '10' }).setToken(token);
 const client = new DiscordClient({
   intents: [
     IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers,
   ],
 });
 
