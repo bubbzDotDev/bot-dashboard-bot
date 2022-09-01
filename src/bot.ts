@@ -21,7 +21,7 @@ const client = new DiscordClient({
   ],
 });
 
-async function main() {
+(async () => {
   const socket = io(process.env.API_HOST);
 
   socket.on('guildConfigUpdate', (config: GuildConfiguration) => {
@@ -66,7 +66,7 @@ async function main() {
         client.configs.set(interaction.guildId, savedConfig);
 
         await interaction.followUp({ content: 'All set! Try your command again.', ephemeral: true});
-
+        return;
       }
       await interaction.reply('Visit https://www.announcementbot.live to access the new dashboard!');
     }
@@ -84,5 +84,5 @@ async function main() {
   } catch (err) {
     console.log(err);
   }
-};
-main();
+})();
+
