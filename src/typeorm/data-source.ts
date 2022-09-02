@@ -1,5 +1,4 @@
 import { DataSource } from 'typeorm';
-import { GuildConfiguration } from './entities/GuildConfiguration';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -9,5 +8,5 @@ export const AppDataSource = new DataSource({
   password: process.env.MYSQL_DB_PASSWORD,
   database: process.env.MYSQL_DB_DATABASE,
   synchronize: false, // true while in development, false in production
-  entities: [ __dirname + GuildConfiguration ],
+  entities: [ __dirname + "/entities/*.js" ],
 });
