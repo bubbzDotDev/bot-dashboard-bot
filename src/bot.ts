@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 config();
 import 'reflect-metadata';
 import { REST } from '@discordjs/rest';
-import { registerCommands, registerEvents } from './utils/registry';
+import { registerEvents } from './utils/registry';
 import DiscordClient from './client/client';
 import { Collection, Guild, TextChannel, IntentsBitField, Routes } from 'discord.js';
 import { AppDataSource } from './typeorm/data-source';
