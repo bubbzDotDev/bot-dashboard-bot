@@ -25,6 +25,7 @@ MYSQL_DB_SYNCHRONIZE= #true in development; false in production
 
 # Server
 API_HOST=
+(Locally, it will be http://localhost:3001)
 ```
 
 ## Running the app

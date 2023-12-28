@@ -8,6 +8,6 @@ export default class ReadyEvent extends BaseEvent {
   }
   async run (client: DiscordClient) {
     console.log('Bot has logged in.');
-    client.user.setActivity(`new dashboard at www.announcementbot.live`, { type: ActivityType.Watching });
+    client.user.setActivity(`www.announcementbot.live`, { type: ActivityType.Watching });
   }
 }
